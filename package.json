@@ -9,6 +9,7 @@
   "keywords": [
     "backlogs"
   ],
+  "type": "module",
   "author": "Dark Sandra",
   "license": "ISC",
   "dependencies": {

@@ -1,12 +1,31 @@
-<!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-  </body>
-</html>
+import { DataTypes } from "sequelize";
+import sequelize from "../config/dbCOnfig.js";
+
+const filmeModel = sequelize.define('Filmes',{
+    id:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: false
+    },
+    titulo: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    diretor:{
+      type: DataTypes.STRING,
+      allowNull: false
+
+    },
+    ano:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    genero:{
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  }, {
+      timestamps:false
+    }
+);
