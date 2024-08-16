@@ -1,6 +1,6 @@
 import filmeModel from "../models/filmeModel.js";
 
-class filmes{
+export default class Filmes{
     async BuscarTodosOsFilmes(req, res){
         try{
             const filmes = await filmeModel.findAll();
@@ -11,10 +11,9 @@ class filmes{
     }
 }
 
-export default filmes {
     async CadastrarFilme (req, res){
         try{
-            const filmeCadastrado = await filmeModel.create();
+            const filmeCadastrado = await filmeModel.create(req,body);
             res.json({message:'Fime criado com sucesso!',filmeCadastrado});
          } catch(err){
             res.status(500).json({erro: err.message});
