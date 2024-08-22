@@ -10,5 +10,5 @@ sequelize.authenticate()
         console.log('Conectado ao MySQL com Sequelize');
     })
     .catch(err => {
-        console.error('Não foi possivel conectar ao banco de doados!' , err);
+        console.error('Não foi possivel conectar ao banco de dados!' , err);
     });

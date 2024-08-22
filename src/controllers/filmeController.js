@@ -9,6 +9,7 @@ export default class Filmes{
         } catch(err){
             res.status(500).json({erro: err.message});
         }
+ 
     }
 
     async CadastrarFilme (req, res){
