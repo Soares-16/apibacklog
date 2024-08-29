@@ -11,14 +11,27 @@ export default class Filmes{
         }
  
     }
+    async BuscarFilmePorId(req,res){
+        try{
+            const filmeEncontrado = await filmeModel.findByPk(req.params.id)
+            if(!filmeEncontrado){
+                return res.status(404).json({erro:'Filme não encontrado'});
+            }
+            return res.json(filmeEncontrado);
+            }
+        
+        catch(err){
+            res.status(500).json({ erro:err.message});
+        }
+    }
 
     async CadastrarFilme (req, res){
         try{
             const filmeCadastrado = await filmeModel.create(req,body);
-            res.json({message:'Fime criado com sucesso!',filmeCadastrado});
+            res.json({message:'Filme criado com sucesso!',filmeCadastrado});
          }
         catch(err){
             res.status(500).json({erro: err.message});
          }    
-}
-};
+        };
+    };

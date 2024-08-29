@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/dbCOnfig.js";
+import sequelize from "../config/dbConfig.js";
 
 const filmeModel = sequelize.define('Filmes',{
     id:{
