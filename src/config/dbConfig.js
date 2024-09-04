@@ -4,7 +4,6 @@ const sequelize = new Sequelize('backlog', 'root', '', {
     host: 'localhost',
     dialect: 'mysql'
 });
-
 sequelize.authenticate()
     .then(() => {
         console.log('Conectado ao MySQL com Sequelize');
