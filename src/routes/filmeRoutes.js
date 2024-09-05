@@ -21,11 +21,18 @@ router.get("/:id", (req , res) =>{
 });
     export default router;
 
-    router.post('/', (req,rest ) => {
+    router.post('/', (req,res) => {
       try {
-         FileSystem.CadastrarFilme( req, res);
+         filmes.CadastrarFilme( req, res);
       }
       catch(err){
          res.status(500).json({erro:err.mensage})
     };
+   });
+   router.put('/:id',(req,res)=>{
+      try{
+         filme.AtualizarFilme(req,res);
+      }catch(err){
+         res.status(500).json({erro:err.mensage});
+      }
    });
