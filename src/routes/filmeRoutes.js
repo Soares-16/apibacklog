@@ -35,4 +35,11 @@ router.get("/:id", (req , res) =>{
       }catch(err){
          res.status(500).json({erro:err.mensage});
       }
+   router.delete('/:id',(req,res) =>{
+      try {
+          filme.DeletarFilme(req ,res);
+       } catch (err ){
+          res.status(500).json({erro: err.message});
+       }
+    });
    });

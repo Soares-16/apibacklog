@@ -6,6 +6,7 @@ const sequelize = new Sequelize('backlog', 'root', '', {
 });
 sequelize.authenticate()
     .then(() => {
+        console.log('teste');
         console.log('Conectado ao MySQL com Sequelize');
     })
     .catch(err => {
