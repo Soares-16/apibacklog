@@ -7,7 +7,7 @@ export default class Filmes{
             const filmes = await filmeModel.findAll();
             res.json(filmes);
         } catch(err){
-            res.status(500).json({erro: err.message});
+           return res.status(500).json({erro: err.message});
         }
  
     }
@@ -28,7 +28,7 @@ export default class Filmes{
     async CadastrarFilme (req, res){
         try{
             const filmeCadastrado = await filmeModel.create(req,body);
-            res.json({message:'Filme criado com sucesso!',filmeCadastrado});
+           return res.json({message:'Filme criado com sucesso!',filmeCadastrado});
          }
           catch(err){
             res.status(500).json({erro: err.message});
@@ -41,9 +41,9 @@ export default class Filmes{
             );
             if(atualizado){
                 const filmeAtualizado = await filmeModel.findByPk(req.params.id);
-                res.json({mensagem: 'Filme atualizado com sucesso!',filme:filmeAtualizado});
+               return res.json({mensagem: 'Filme atualizado com sucesso!',filme:filmeAtualizado});
             }else{
-                res.status(404).json({erro:'Filme não encontrado"'});
+               return res.status(404).json({erro:'Filme não encontrado"'});
             }
         }
         catch(err){
