@@ -1,0 +1,41 @@
+ interface Filme{
+    id: number;
+    titulo: string;
+    diretor: string;
+    genero: string;
+    ano: number;
+ }
+const apiURL = 'http://localhost:3000';
+
+//Buscar todos os filmes 
+async function buscarFilme(): Promise<Filme[]> {
+    const response = await fetch(apiURL);
+    if( !response.ok)
+    {
+        throw new Error('Erro ao buscar filme');
+    }
+    return response.json();
+}
+// mostrar os filmes na tela 
+async function renderizarFilmes(){
+    try {
+        const filmes = await buscarFilme();
+        const lista = document.getElementById('lista-filmes')as HTMLAreaElement
+        lista.innerHTML = '';
+
+        filmes.forEach((filmes) =>{
+            const item = document.createElement('li');
+            item.textContent = '${ filmes.titulo} - ${ filmes.diretor} - ${filmes.genero} - ${filmes.ano}';
+
+        });
+
+
+        
+    } catch (error) {
+        
+    }
+    
+}
+//cadastrar todos os filmes
+
+//deletar um filme
